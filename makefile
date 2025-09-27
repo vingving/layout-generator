@@ -1,8 +1,9 @@
 KLAYOUT = klayout -zz -e -j . -r
+# -zz=GUI없이 실행, -e=종료 안 함, -j .=현재 디렉토리 import path에 추가, -r=스크립트 실행
 VPATH = ./layouts
 
 all: via_test.oas
-
+# make all 실행 시 기본적으로 via_test.oas 파일을 만들도록 설정
 
 m2_%.oas: configs/m2_%.csv ./src/m2.py
 	mkdir -p layouts
@@ -36,4 +37,5 @@ iccad13:
 	$(KLAYOUT) src/iccad13_gen.py
 
 clean:
+
 	rm -rf layouts/*
