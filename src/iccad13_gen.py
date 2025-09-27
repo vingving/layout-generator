@@ -20,15 +20,18 @@ se.get_shape_lib()
 clip_num_per_density=4200
 # 한 가지 spacing 값마다 4200개의 레이아웃(clip)을 생성
 
-for i in range(40, 80, 10):
+for i in range(40, 80, 10):  # spacing = 40, 50, 60, 70
     se.spacing=i
     bar = Bar("enumerating layouts spacing %g"%i, max=clip_num_per_density)
-    for pc in range(clip_num_per_density):
+    for pc in range(clip_num_per_density):  # 0 ~ 4199
         se.draw_layout()
         bar.next()
     
     bar.finish()
 
 
+# spacing 반복(4) × clip_num_per_density(4200)
+# = 4 × 4200
+# = 16,800 개
 
 
